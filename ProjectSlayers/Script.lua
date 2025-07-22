@@ -1,34 +1,13 @@
+-- preserve any WebSocket settings
+getgenv().WebSocket = nil
+getgenv().Websocket = nil
+
+-- load Fluent (only used by the key-UI, you can even remove these two lines if you want)
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
 
-local FrostiesVersion = "2"
+-- load the Luarmor API and set your script ID
+local api = loadstring(game:HttpGet("https://sdkapi-public.luarmor.net/library.lua"))()
+api.script_id = "590f1ccc9913df943bdbd88635a9d5ca"
 
-local Window = Fluent:CreateWindow({
-	Title = "Frosties " .. FrostiesVersion,
-	SubTitle = "discord.gg/XUUjpeyc3S",
-	TabWidth = 160,
-	Size = UDim2.fromOffset(550, 280),
-	Acrylic = true,
-	Theme = "Cat",
-	MinimizeKey = Enum.KeyCode.LeftControl
-})
-
-local Tabs1 = {
-	Main = Window:AddTab({ Title = "Main", Icon = "" }),
-}
-
-Tabs1.Main:AddParagraph({
-	Title = "Welcome!",
-	Content = "Key system has been removed.\nEnjoy using the script without any key input 🐱"
-})
-
--- Add your features below this line
--- Example button:
-Tabs1.Main:AddButton({
-	Title = "Feature Button",
-	Description = "This is where your real feature would be executed",
-	Callback = function()
-		print("Feature activated")
-	end
-})
-
-Window:SelectTab(1)
+-- immediately run the real script (no key prompt)
+api.load_script()
