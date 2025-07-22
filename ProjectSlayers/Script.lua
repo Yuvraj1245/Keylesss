@@ -2,6 +2,7 @@ getgenv().WebSocket = nil
 getgenv().Websocket = nil
 
 local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+
 local Window = Fluent:CreateWindow({
 	Title = "Frosties ".. FrostiesVersion,
 	SubTitle = "discord.gg/XUUjpeyc3S",
